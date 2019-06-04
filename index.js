@@ -8,10 +8,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.get('/', (req, res) => {
-	res.send({ver: '1.0.0'})
-})
-
 //Set Global store if not exists
 app.use('', (req,res,next) => {
 	if(!global.contacts){

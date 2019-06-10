@@ -4,9 +4,6 @@ const path = require('path');
 module.exports = (app, express) => {
 	const router = express.Router();
 	
-	//Set default api path
-	app.use('/api', router);
-	
 	Routes.forEach(route => {
 		route(router)
 	})
@@ -14,6 +11,9 @@ module.exports = (app, express) => {
 	app.get('/', (req, res) => {
 		res.send({ver: '1.0.0'})
 	})
+	
+	//Set default api path
+	app.use('/api', router);
 	
 	// 404 not found
 	app.use('*', (req, res) => {
